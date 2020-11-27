@@ -37,3 +37,9 @@ Le prédicat contient fonctionne en 2 temps : il vérifie d'abord, si X est le p
 1. `contient1` est la même version du contient de la [question5](#question-5), et le test `contient1(2, L)` offre une magnifique boucle infinie, mais pour le `contient1(X, [1, 2, 3])` on finit sur un false. `contient2` (qui inverse juste l'ordre de déclaration par rapport à `contient1`) enlève le false sur le second test, mais renvoie un 'out of stack' (équivalent à stack overflow) sur le troisième test du au fait que la première déclaration est récursive. `contient3` (qui utilise la coupure) évite la boucle infinie sur le troisième test mais ne montre qu'un seul résultat pour le second, il ne montre à chaque fois qu'un seul résultat. Enfin `contient4` (inverse de `contient3`) fait exactement la même chose que `contient2`.
 2. Les versions avec coupure ont l'avantage d'éviter des boucles infinies quand elles sont bien utilisées, mais l'inconvénient de ne montrer qu'un seul résultat lors des requêtes de recherche. Leurs utilisations est donc complexe et il faut bien faire attention à l'ordre dans lequel sont donnés les prédicats.
 3. Le prédicat standart `member/2` ne correspond à aucune version ci-dessus : au premier test il renvoie true et false, au second il ne renvoie que les bons résultats sans le false à la fin, et il fait la boucle infinie sur le troisième.
+
+## Question 8
+
+Voir fichier **cartes-Traini.pl**. En faisant `solution_as(L).`, prolog nous donne cette solution : `L = [pique, carreau, trefle, coeur] .` qui correspond à la solution trouvée au tp1 :
+
+> Le résultat est l'as de pique en 1, l'as de carreau en 2, l'as de trefle en 3 et l'as de coeur en 4.
