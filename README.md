@@ -40,6 +40,15 @@ Le prédicat contient fonctionne en 2 temps : il vérifie d'abord, si X est le p
 
 ## Question 8
 
-Voir fichier **cartes-Traini.pl**. En faisant `solution_as(L).`, prolog nous donne cette solution : `L = [pique, carreau, trefle, coeur] .` qui correspond à la solution trouvée au tp1 :
+1. Voir fichier **cartes-Traini.pl**.
+2. En faisant `solution_as(L).`, prolog nous donne cette solution : `L = [pique, carreau, trefle, coeur] .` qui correspond à la solution trouvée au tp1 :
 
 > Le résultat est l'as de pique en 1, l'as de carreau en 2, l'as de trefle en 3 et l'as de coeur en 4.
+
+## Question 9
+
+Partie 2 à faire avant.
+
+## Question 10
+
+Jouer au jeu, tester la solution, tester les 'bad ending'.
