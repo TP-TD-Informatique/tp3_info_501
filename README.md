@@ -27,3 +27,7 @@ Pour tout les tests 'normaux' avec 2 constantes, tout fonctionne. Mais quand on 
 ## Question 5
 
 Les 2 manières de définir le prédicat deuxieme fonctionnent, mais la première lève 3 warning pour des variables singleton. Pour la seconde manière, aucun warning n'est levé et elle fonctionne tout aussi bien.
+
+## Question 6
+
+Le prédicat contient fonctionne en 2 temps : il vérifie d'abord, si X est le premier élément de la liste, et dans ce cas il renvoie true, sinon il vérifie récursivement si X est le premier élément du reste de la liste. Les autres prédicats fonctionne de la même manière, on vérifie la condition, si oui on renvoie true, sinon on teste sur le reste de la liste. Petite particularité pour devant, si on a trouvé X, il suffit de tester si le reste de la liste contient Y.
