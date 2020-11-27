@@ -22,4 +22,8 @@ Dans les 2 cas (imposer l'égalité, unification implicite), le résultat reste 
 
 ## Question 4
 
-Pour tout les tests 'normaux' avec 2 constantes, tout fonctionne. Mais quand on mets une variable dans fratrie, elle renvoie directement `false.`. Cela est du au fait que prolog vérifie d'abord la première condition, et elle est fausse directement au premier test au la variable est égale à la constante, il faut donc faire ce test en dernier. Et dans ce cas tout fonctionne correctement.
+Pour tout les tests 'normaux' avec 2 constantes, tout fonctionne. Mais quand on mets une variable dans le prédicat fratrie, elle renvoie directement `false.`. Cela est du au fait que prolog vérifie d'abord la première condition, et elle est fausse directement au premier test au la variable est égale à la constante, il faut donc faire ce test en dernier. Et dans ce cas tout fonctionne correctement.
+
+## Question 5
+
+Les 2 manières de définir le prédicat deuxieme fonctionnent, mais la première lève 3 warning pour des variables singleton. Pour la seconde manière, aucun warning n'est levé et elle fonctionne tout aussi bien.
