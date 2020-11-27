@@ -82,4 +82,5 @@ ancetre(X, Y) :-
 
 fratrie(X,Y) :-
     pere(P, X),
-    pere(P, Y).
+    pere(P, Y),
+    X \= Y.
