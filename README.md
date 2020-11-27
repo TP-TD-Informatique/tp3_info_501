@@ -52,3 +52,7 @@ Partie 2 à faire avant.
 ## Question 10
 
 Jouer au jeu, tester la solution, tester les 'bad ending'.
+
+## Question 11
+
+L'histoire principale ainsi que ces potentiels embranchements sont dans le fichier **scenario.md**. Vous y trouverez également les détails du programme.
