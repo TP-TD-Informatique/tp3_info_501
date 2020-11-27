@@ -2,7 +2,7 @@
 
 Kevin Traini
 
-## Question 1 :
+## Question 1
 
 1. `?- chien(milou).` renvoie `true.`
 2. `?- mortel(louis_XIV)` renvoie `true.`
@@ -12,6 +12,10 @@ Kevin Traini
    3. `?- souris(milou)` renvoie `ERROR: Undefined procedure: souris/1 (DWIM could not correct goal)`
 4. `mortel(X)` renvoie `FENZFZE = socrate ; FENZFZE = louis_XIV.`
 
-## Question 2 :
+## Question 2
 
 Les résultat de `X = pere(theophile, louise).` et de `pere(theophile, louise) = X.` sont les mêmes : `X = pere(theopile, louise).`.
+
+## Question 3
+
+Dans les 2 cas (imposer l'égalité, unification implicite), le résultat reste le même : `false.`. En ajoutant la possibilité que le lien entre le grand-père et le petit-fils soit la mère, on corrige le bug.

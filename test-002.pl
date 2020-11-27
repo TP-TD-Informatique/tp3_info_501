@@ -61,9 +61,13 @@ pere(kevin, luna).
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-grand_pere(X, Y) :-
-    pere(X, Z),
-    pere(Z, Y).
+grand_pere(GP, PF) :-
+    pere(GP, P),
+    pere(P, PF).
+
+grand_pere(GP, PF) :-
+    pere(GP, M),
+    mere(M, PF).
 
 ancetre(X, Y) :-
     pere(X, Y).
