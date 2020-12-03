@@ -2,9 +2,6 @@
 % TP3 info501
 % Kevin Traini
 
-:- discontiguous decrire.
-:- discontiguous options.
-
 % _.-._.-._.-._.-._.-._.-._.-._.-._.-._.-._.-._.-._.-._.-._.-._.-._.-._.-._.-._.-.
 % Initialisations de bases
 :- retractall(caract(_, _, _)). % Caractéristiques de naissance
@@ -577,12 +574,6 @@ decrire :-
     write("Au bout d'a peine 10 heures de marche, vous croisez une première personnes, il s'agit d'un vieil homme assis sur le bord du chemin, il a un bâton dans la main gauche."), nl,
     nl, !.
 
-options :-
-    position_courante(debut),
-    nl,
-    write("Vous pouvez soit 'continuer', soit vous 'rapprocher' du vieil homme, ou même 'revenir' au château."), nl,
-    nl, !.
-
 decrire :-
     position_courante(vieil_homme),
     nl,
@@ -596,13 +587,6 @@ decrire :-
     write("toujours pas le nom) vous demande si vous connaissez l'histoire de ce royaume ?"), nl,
     nl, !.
 
-options :-
-    position_courante(vieil_homme),
-    nl,
-    write("'oui' ou 'non' ?"),
-    nl,
-    nl, !.
-
 decrire :-
     position_courante(vieil_homme2),
     nl,
@@ -610,13 +594,6 @@ decrire :-
     write("montagnes. Dans la partie sud des montagnes bleues des villageois ont vu des démons au loin dans les montagnes, ils "), nl,
     write("pensent qu'ils sont entrain d'amménager un passage au travers des cols."), nl,
     write("Vous cherchiez une quête, en voici une : allez enquêter sur ces apparitions."), nl,
-    nl, !.
-
-options :-
-    position_courante(vieil_homme2),
-    nl,
-    write("Acceptez-vous cette quête ? 'oui' ou 'non'."),
-    nl,
     nl, !.
 
 decrire :-
@@ -627,22 +604,6 @@ decrire :-
     village_colTaille,
     write("Et ce que vous voyez vous consterne. Des centaines de démons creusent un passage de 100 cheveaux de large, il y aurait "), nl,
     write("de quoi faire passer une immense armée."), nl,
-    nl, !.
-
-village_colTaille :-
-    caract(_, grand, _),
-    write("Grâce a vos grandes jambes, vous arrivez très vite en vue du chantier."), nl,
-    !.
-
-village_col :-
-    write("Puisque vous êtes petit, vous avez besoin de plusieurs heures pour grimper dans la montagne."), nl,
-    !.
-
-options :-
-    position_courante(village_col),
-    nl,
-    write("Vous avez le choix, soit vous 'attaquer', soit vous allez au château requérir une 'aide'."),
-    nl,
     nl, !.
 
 decrire :-
@@ -664,22 +625,10 @@ decrire :-
     nl,
     nl, !.
 
-options :-
-    position_courante(labyrinthe),
-    assert(position_labyrinthe(q1)),
-    labyrinthe, !.
-
 decrire :-
     position_courante(desert),
     nl,
     write("Enfin ! Vous avez réussi les épreuves du labyrinthe. Maintenant vous êtes dans le désert, et vous n'avez pas d'eau."), nl,
-    nl,
-    nl, !.
-
-options :-
-    position_courante(desert),
-    nl,
-    write("Que faites vous ? 'rebrousser' chemin pour aller chercher de l'eau, ou 'continuer' en espérent tomber sur des puits."), nl,
     nl,
     nl, !.
 
@@ -690,6 +639,54 @@ decrire :-
     write("liberté de programmation, vous le provoquer en duel."), nl,
     % chateau_idiot
     fin.
+
+options :-
+    position_courante(debut),
+    nl,
+    write("Vous pouvez soit 'continuer', soit vous 'rapprocher' du vieil homme, ou même 'revenir' au château."), nl,
+    nl, !.
+
+options :-
+    position_courante(vieil_homme),
+    nl,
+    write("'oui' ou 'non' ?"),
+    nl,
+    nl, !.
+
+options :-
+    position_courante(vieil_homme2),
+    nl,
+    write("Acceptez-vous cette quête ? 'oui' ou 'non'."),
+    nl,
+    nl, !.
+
+options :-
+    position_courante(village_col),
+    nl,
+    write("Vous avez le choix, soit vous 'attaquer', soit vous allez au château requérir une 'aide'."),
+    nl,
+    nl, !.
+
+options :-
+    position_courante(labyrinthe),
+    assert(position_labyrinthe(q1)),
+    labyrinthe, !.
+
+options :-
+    position_courante(desert),
+    nl,
+    write("Que faites vous ? 'rebrousser' chemin pour aller chercher de l'eau, ou 'continuer' en espérent tomber sur des puits."), nl,
+    nl,
+    nl, !.
+
+village_colTaille :-
+    caract(_, grand, _),
+    write("Grâce a vos grandes jambes, vous arrivez très vite en vue du chantier."),
+    nl, !.
+
+village_col :-
+    write("Puisque vous êtes petit, vous avez besoin de plusieurs heures pour grimper dans la montagne."),
+    nl, !.
 
 chateau_idiot :-
     position_courante(fin_chateau),
