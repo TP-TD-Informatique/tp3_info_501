@@ -158,3 +158,64 @@ Bravo !!! Vous avez gagné.
 fin du jeu
 
 ### Labyrinthe
+
+Le labyrinthe est une suite de questions lié à la programmation.
+Plan :
+                       Entrée
+                X        |
+                |        |
+                |        |
+   X---5--------4--------1--------2-------6-------X
+       |\                |        |\      |
+       | \______________ |        | \     |
+        \____________   \|        X  \    |
+                     \   3            \   7------X
+                      \  |\            \  |
+                       \ | \____________\ |
+                        \|               \|
+                         8----------------9
+                         |
+                         |
+                         |
+                       Sortie
+
+Les X réprésente la mort
+
+Les questions sont :
+
+1. Le python est un langage :
+   1. interprete -> 3
+   2. compile -> 2
+   3. excellent -> 4
+2. Pour afficher un texte en kotlin, on utilise
+   1. println -> 6
+   2. afficher -> X
+3. Le noyau linux est open source ?
+   1. oui -> 8
+   2. non -> 9
+4. Le langage utilisé pour ce jeu est :
+   1. prolog -> 5
+   2. caml -> X
+5. Quelle est la version actuelle de CSS :
+   1. v3 -> 3
+   2. v5 -> X
+6. Quel langage n'existe pas
+   1. a -> 7
+   2. b -> X
+7. noe4j est orienté :
+   1. graphe -> 9
+   2. objet -> X
+8. La contraction de Fil is a language est :
+   1. fil -> Sortie
+   2. lif -> 5
+9. Votre langage préféré est :
+   1. java -> 2
+   2. c -> 8
+
+```md
+Après une traversée laborieuse des montagnes, vous arrivez enfin au labyrinthe. Pour le traverser vous devrez répondre à une série de questions. Faite attention, car une mauvaise réponse pourrais signer votre fin.
+```
+
+position_labyrinthe(q1).
+
+Quand bonne réponse pour position_labyrinthe(q8) -> position_courante(desert).

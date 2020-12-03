@@ -9,6 +9,7 @@
 % Initialisations de bases
 :- retractall(caract(_, _, _)). % Caractéristiques de naissance
 :- retractall(position_courante(_)). % On n'est pas né, donc on est nul part
+:- retractall(position_labyrinthe(_)). % On n'est pas encore dans le labyrinthe
 
 
 % _.-._.-._.-._.-._.-._.-._.-._.-._.-._.-._.-._.-._.-._.-._.-._.-._.-._.-._.-._.-.
@@ -74,6 +75,34 @@ histoire :-
 
 % _.-._.-._.-._.-._.-._.-._.-._.-._.-._.-._.-._.-._.-._.-._.-._.-._.-._.-._.-._.-.
 % Déplacement
+a :-
+    position_labyrinthe(q6),
+    nl,
+    write("Bonne réponse !"),
+    nl,
+    retract(position_labyrinthe(q6)),
+    assert(position_labyrinthe(q7)),
+    labyrinthe, !.
+
+a :- % Pour tout les autres cas de a
+    nl,
+    write("Vous ne pouvez pas faire ça !"),
+    nl,
+    fail.
+
+afficher :-
+    position_labyrinthe(q2),
+    nl,
+    write("Perdu ! Malheureusement vous êtes mort."),
+    nl,
+    fin, !.
+
+afficher :- % Pour tout les autres cas de afficher
+    nl,
+    write("Vous ne pouvez pas faire ça !"),
+    nl,
+    fail.
+
 aide :-
     position_courante(village_col),
     retract(position_courante(village_col)),
@@ -89,7 +118,7 @@ aide :- % Pour tout les autres cas de aide
 attaquer :-
     position_courante(village_col),
     caract(fort, _, _),
-    write("Vous êtes tellement fort, que vous gagnes contre tout ces démons."),
+    write("Vous êtes tellement fort, que vous gagnez contre tout ces démons."),
     retract(position_courante(village_col)),
     assert(position_courante(labyrinthe)),
     histoire, !.
@@ -106,6 +135,62 @@ attaquer :- % Pour tout les autres cas de attaquer
     nl,
     fail.
 
+b :-
+    position_labyrinthe(q6),
+    nl,
+    write("Perdu ! Malheureusement vous êtes mort."),
+    nl,
+    fin, !.
+
+b :- % Pour tout les autres cas de b
+    nl,
+    write("Vous ne pouvez pas faire ça !"),
+    nl,
+    fail.
+
+c :-
+    position_labyrinthe(q9),
+    nl,
+    write("Je vous souhaite beaucoup de bonheur"),
+    nl,
+    retract(position_labyrinthe(q9)),
+    assert(position_labyrinthe(q8)),
+    labyrinthe, !.
+
+c :- % Pour tout les autres cas de c
+    nl,
+    write("Vous ne pouvez pas faire ça !"),
+    nl,
+    fail.
+
+caml :-
+    position_labyrinthe(q4),
+    nl,
+    write("Perdu ! Malheureusement vous êtes mort."),
+    nl,
+    fin, !.
+
+caml :- % Pour tout les autres cas de caml
+    nl,
+    write("Vous ne pouvez pas faire ça !"),
+    nl,
+    fail.
+
+compile :-
+    position_labyrinthe(q1),
+    nl,
+    write("Bonne réponse !"), 
+    nl,
+    retract(position_labyrinthe(q1)),
+    assert(position_labyrinthe(q2)),
+    labyrinthe, !.
+
+compile :- % Pour tout les autres cas de compile
+    nl,
+    write("Vous ne pouvez pas faire ça !"),
+    nl,
+    fail.
+
 continuer :-
     position_courante(debut),
     nl,
@@ -115,6 +200,97 @@ continuer :-
     fin.
 
 continuer :- % Pour tout les autres cas de continuer
+    nl,
+    write("Vous ne pouvez pas faire ça !"),
+    nl,
+    fail.
+
+excellent :-
+    position_labyrinthe(q1),
+    nl,
+    write("Bonne réponse !"),
+    nl,
+    retract(position_labyrinthe(q1)),
+    assert(position_labyrinthe(q4)),
+    labyrinthe, !.
+
+excellent :- % Pour tout les autres cas de excellent
+    nl,
+    write("Vous ne pouvez pas faire ça !"),
+    nl,
+    fail.
+
+fil :-
+    position_labyrinthe(q8),
+    nl,
+    write("Bonne réponse !"),
+    nl,
+    retract(position_labyrinthe(q8)),
+    retract(position_courante(labyrinthe)),
+    assert(position_courante(desert)),
+    histoire, !.
+
+fil :- % Pour tout les autres cas de fil
+    nl,
+    write("Bravo, vous avez trouvé un easter egg, mais il ne sert à rien"),
+    nl,
+    fail.
+
+graphe :-
+    position_labyrinthe(q7),
+    nl,
+    write("Bonne réponse !"),
+    nl,
+    retract(position_labyrinthe(q7)),
+    assert(position_labyrinthe(q9)),
+    labyrinthe, !.
+
+graphe :- % Pour tout les autres cas de graphe
+    nl,
+    write("Vous ne pouvez pas faire ça !"),
+    nl,
+    fail.
+
+interprete :-
+    position_labyrinthe(q1),
+    nl,
+    write("Bonne réponse !"),
+    nl,
+    retract(position_labyrinthe(q1)),
+    assert(position_labyrinthe(q3)),
+    labyrinthe, !.
+
+interprete :- % Pour tout les autres cas de interprete
+    nl,
+    write("Vous ne pouvez pas faire ça !"),
+    nl,
+    fail.
+
+java :-
+    position_labyrinthe(q9),
+    nl,
+    write("Tant pis pour vous"),
+    nl,
+    retract(position_labyrinthe(q9)),
+    assert(position_labyrinthe(q2)),
+    labyrinthe, !.
+
+java :- % Pour tout les autres cas de java
+    nl,
+    write("Vous ne pouvez pas faire ça !"),
+    nl,
+    fail.
+
+lif :-
+    position_labyrinthe(q8),
+    nl,
+    write("Mauvaise réponse"),
+    nl,
+    retract(position_labyrinthe(q8)),
+    assert(position_labyrinthe(q5)),
+    labyrinthe, !.
+
+lif :- % Pour tout les autres cas de lif
     nl,
     write("Vous ne pouvez pas faire ça !"),
     nl,
@@ -136,7 +312,29 @@ non :-
     assert(position_courante(vieil_homme2)),
     histoire, !.
 
+non :-
+    position_labyrinthe(q3),
+    nl,
+    write("Mauvaise réponse !"),
+    nl,
+    retract(position_labyrinthe(q3)),
+    assert(position_labyrinthe(q9)),
+    labyrinthe, !.
+
 non :- % Pour tout les autres cas de non
+    nl,
+    write("Vous ne pouvez pas faire ça !"),
+    nl,
+    fail.
+
+objet :-
+    position_labyrinthe(q7),
+    nl,
+    write("Perdu ! Malheureusement vous êtes mort !"),
+    nl,
+    fin, !.
+
+objet :- % Pour tout les autres cas de objet
     nl,
     write("Vous ne pouvez pas faire ça !"),
     nl,
@@ -155,7 +353,46 @@ oui :-
     assert(position_courante(village_col)),
     histoire, !.
 
+oui :-
+    position_labyrinthe(q3),
+    nl,
+    write("Bonne réponse !"),
+    nl,
+    retract(position_labyrinthe(q3)),
+    assert(position_labyrinthe(q8)),
+    labyrinthe, !.
+
 oui :- % Pour tout les autres cas de oui
+    nl,
+    write("Vous ne pouvez pas faire ça !"),
+    nl,
+    fail.
+
+println :-
+    position_labyrinthe(q2),
+    nl,
+    write("Bonne réponse !"),
+    nl,
+    retract(position_labyrinthe(q2)),
+    assert(position_labyrinthe(q6)),
+    labyrinthe, !.
+
+println :- % Pour tout les autres cas de println
+    nl,
+    write("Vous ne pouvez pas faire ça !"),
+    nl,
+    fail.
+
+prolog :-
+    position_labyrinthe(q4),
+    nl,
+    write("Bonne réponse !"),
+    nl,
+    retract(position_labyrinthe(q4)),
+    assert(position_labyrinthe(q5)),
+    labyrinthe, !.    
+
+prolog :- % Pour tout les autres cas de prolog
     nl,
     write("Vous ne pouvez pas faire ça !"),
     nl,
@@ -187,6 +424,117 @@ revenir :- % Pour tout les autres cas de revenir
     write("Vous ne pouvez pas faire ça !"),
     nl,
     fail.
+
+v3 :-
+    position_labyrinthe(q5),
+    nl,
+    write("Bonne réponse !"),
+    nl,
+    retract(position_labyrinthe(q5)),
+    assert(position_labyrinthe(q3)),
+    labyrinthe, !.
+
+v3 :- % Pour tout les autres cas de v3
+    nl,
+    write("Vous ne pouvez pas faire ça !"),
+    nl,
+    fail.
+
+v5 :-
+    position_labyrinthe(q5),
+    nl,
+    write("Perdu ! Malheureusement vous êtes mort !"),
+    nl,
+    fin, !.
+
+v5 :- % Pour tout les autres cas de v5
+    nl,
+    write("Vous ne pouvez pas faire ça !"),
+    nl,
+    fail.
+
+% _.-._.-._.-._.-._.-._.-._.-._.-._.-._.-._.-._.-._.-._.-._.-._.-._.-._.-._.-._.-.
+% Labyrinthe
+
+labyrinthe :-
+    position_labyrinthe(q1),
+    nl,
+    write("Le python est un langage :"), nl,
+    write("   interprete"), nl,
+    write("   compile"), nl,
+    write("   excellent"), nl,
+    nl, !.
+
+labyrinthe :-
+    position_labyrinthe(q2),
+    nl,
+    write("Pour afficher un texte en kotlin, on utilise"), nl,
+    write("   println"), nl,
+    write("   afficher"), nl,
+    nl, !.
+
+labyrinthe :-
+    position_labyrinthe(q3),
+    nl,
+    write("Le noyau linux est open source ?"), nl,
+    write("   oui"), nl,
+    write("   non"), nl,
+    nl, !.
+
+labyrinthe :-
+    position_labyrinthe(q4),
+    nl,
+    write("Le langage utilisé pour ce jeu est :"), nl,
+    write("   prolog"), nl,
+    write("   caml"), nl,
+    nl, !.
+
+labyrinthe :-
+    position_labyrinthe(q5),
+    nl,
+    write("Quelle est la version actuelle de CSS :"), nl,
+    write("   v3"), nl,
+    write("   v5"), nl,
+    nl, !.
+
+labyrinthe :-
+    position_labyrinthe(q6),
+    nl,
+    write("Quel langage n'existe pas"), nl,
+    write("   a"), nl,
+    write("   b"), nl,
+    nl, !.
+
+labyrinthe :-
+    position_labyrinthe(q7),
+    nl,
+    write("noe4j est orienté :"), nl,
+    write("   graphe"), nl,
+    write("   objet"), nl,
+    nl, !.
+
+labyrinthe :-
+    position_labyrinthe(q8),
+    nl,
+    write("La contraction de Fil is a language est :"), nl,
+    write("   fil"), nl,
+    write("   lif"), nl,
+    nl, !.
+
+labyrinthe :-
+    position_labyrinthe(q9),
+    nl,
+    write("Votre langage préféré est :"), nl,
+    write("   java"), nl,
+    write("   c"), nl,
+    nl, !.
+
+labyrinthe :- % Dans tout les autres cas de labyrinthe
+    % Ne devrait pas arriver
+    nl,
+    write("ERREUR"),
+    retractall(position_labyrinthe(_)),
+    nl, !.
 
 % _.-._.-._.-._.-._.-._.-._.-._.-._.-._.-._.-._.-._.-._.-._.-._.-._.-._.-._.-._.-.
 % Lieux
@@ -283,3 +631,16 @@ decrire :-
     write("Bravo !!! Vous avez gagné."), nl,
     nl,
     fin, !.
+
+decrire :-
+    position_courante(labyrinthe),
+    nl,
+    write("Vous arrivez enfin au labyrinthe, pour le traverser vous devrez répondre à une série de questions. Faite attention, car "), nl,
+    write("une mauvaise réponse pourrais signer votre fin."), nl,
+    nl,
+    nl, !.
+
+options :-
+    position_courante(labyrinthe),
+    assert(position_labyrinthe(q1)),
+    labyrinthe, !.
