@@ -47,9 +47,21 @@ Le prédicat contient fonctionne en 2 temps : il vérifie d'abord, si X est le p
 
 ## Question 9
 
-Partie 2 à faire avant.
+1. Voir fichier **zebra-Traini.pl**
+2. En faisant `solution(L).`, on obtient cette solution `L = [maison(jaune, poissons, biere, jazz, footballeur), maison(immeuble, hamster, eau, musique_classique, architecte), maison(brique, chat, soda, hard-rock, chercheur), maison(bois, zebre, whisky, chanson_francaise, boulanger), maison(blanche, tortue, the, hiphop, musicien)]`
 
-## Question 10
+|  N°   |   Type   |  Animal  | Boisson |      Musique      |   Metier    |
+| :---: | :------: | :------: | :-----: | :---------------: | :---------: |
+|   1   |  Jaune   | Poissons |  Biere  |       Jazz        | Footballeur |
+|   2   | Immeuble | Hamster  |   Eau   | Musique classique | Architecte  |
+|   3   |  Brique  |   Chat   |  Soda   |     Hard-rock     |  Chercheur  |
+|   4   |   Bois   |  Zebre   | Whisky  | Chanson française |  Boulanger  |
+|   5   | Blanche  |  Tortue  |   Thé   |      Hiphop       |  Musicien   |
+
+Ce qui correspond au résultat trouvé au tp1 :
+> On en conclut que c'est le boulanger dans la maison 4 qui à le zèbre.
+
+## Question 10
 
 Jouer au jeu, tester la solution, tester les 'bad ending'.
 
