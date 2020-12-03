@@ -199,6 +199,16 @@ continuer :-
     write("Vous avez perdu !"), nl,
     fin.
 
+continuer :-
+    position_courante(desert),
+    nl,
+    write("Vous trouvez une piste le long de laquelle il y a un puit pour chaque jour. Après 1 semaine de marche vous arrivez "), nl,
+    write("en vue du château démon."), nl,
+    nl,
+    retract(position_courante(desert)),
+    assert(position_courante(fin_chateau)),
+    histoire, !.
+
 continuer :- % Pour tout les autres cas de continuer
     nl,
     write("Vous ne pouvez pas faire ça !"),
@@ -408,6 +418,20 @@ rapprocher :-
     histoire, !.
 
 rapprocher :- % Pour tout les autres cas de rapprocher
+    nl,
+    write("Vous ne pouvez pas faire ça !"),
+    nl,
+    fail.
+
+rebrousser :-
+    position_courante(desert),
+    nl,
+    write("Vous retourner dans la montagne chercher de l'eau dans les glaciers, malheureusement vous tomber dans une crevasse "), nl,
+    write("et mourez."), nl,
+    nl,
+    fin.
+
+rebrousser :- % Pour tout les autres cas de rebrousser
     nl,
     write("Vous ne pouvez pas faire ça !"),
     nl,
@@ -644,3 +668,42 @@ options :-
     position_courante(labyrinthe),
     assert(position_labyrinthe(q1)),
     labyrinthe, !.
+
+decrire :-
+    position_courante(desert),
+    nl,
+    write("Enfin ! Vous avez réussi les épreuves du labyrinthe. Maintenant vous êtes dans le désert, et vous n'avez pas d'eau."), nl,
+    nl,
+    nl, !.
+
+options :-
+    position_courante(desert),
+    nl,
+    write("Que faites vous ? 'rebrousser' chemin pour aller chercher de l'eau, ou 'continuer' en espérent tomber sur des puits."), nl,
+    nl,
+    nl, !.
+
+decrire :-
+    position_courante(fin_chateau),
+    nl,
+    write("Quand vous arrivez au pied du château, le nouveau roi des démons vous attend. En tant que chevalier et défenseur de la "), nl,
+    write("liberté de programmation, vous le provoquer en duel."), nl,
+    % chateau_idiot
+    fin.
+
+chateau_idiot :-
+    position_courante(fin_chateau),
+    caract(_, _, idiot),
+    nl,
+    write("Du fait de votre non-intelligence, vous attaquez instinctivement et réussissez à battre le roi de démons."), nl,
+    nl,
+    write("Bravo !!! Vous avez gagné !"), nl,
+    nl, !.
+
+chateau_idiot :-
+    position_courante(fin_chateau),
+    nl,
+    write("Vous réflechissez trop à votre tactique, et le roi des démons vous détruit littéralement."), nl,
+    nl,
+    write("Vous être mort !"), nl,
+    nl, !.

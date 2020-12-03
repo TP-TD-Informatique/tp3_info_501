@@ -16,6 +16,9 @@ Au lancement du jeu, quelques questions sont posées, et elles permettent de dé
   - [Vieil homme 3](#vieil-homme-3)
   - [Village col](#village-col)
   - [Fin aide](#fin-aide)
+  - [Labyrinthe](#labyrinthe)
+  - [Désert](#désert)
+  - [Fin chateau](#fin-chateau)
 
 ## Histoire
 
@@ -157,7 +160,7 @@ Bravo !!! Vous avez gagné.
 
 fin du jeu
 
-### Labyrinthe
+### Labyrinthe
 
 Le labyrinthe est une suite de questions lié à la programmation.
 Plan :
@@ -219,3 +222,40 @@ Après une traversée laborieuse des montagnes, vous arrivez enfin au labyrinthe
 position_labyrinthe(q1).
 
 Quand bonne réponse pour position_labyrinthe(q8) -> position_courante(desert).
+
+### Désert
+
+```md
+Enfin ! Vous avez réussi les épreuves du labyrinthe. Maintenant vous êtes dans le désert, et vous n'avez pas d'eau.
+
+Que faites vous ? 'rebrousser' chemin pour aller chercher de l'eau, ou 'continuer' en espérent tomber sur des puits.
+```
+
+- rebrousser ->
+  - `Vous retourner dans la montagne chercher de l'eau dans les glaciers, malheureusement vous tomber dans une crevasse et mourez.` -> fin.
+- continuer ->
+  - `Vous trouvez une piste le long de laquelle il y a un puit pour chaque jour. Après 1 semaine de marche vous arrivez en vue du château démon.` -> position_courante(fin_chateau).
+
+### Fin chateau
+
+```md
+Quand vous arrivez au pied du château, le nouveau roi des démons vous attend. En tant que chevalier et défenseur de la liberté de programmation, vous le provoquer en duel.
+```
+
+Si idiot
+
+```md
+Du fait de votre non-intelligence, vous attaquez instinctivement et réussissez à battre le roi de démons.
+
+Bravo !!! Vous avez gagné !
+```
+
+sinon
+
+```md
+Vous réflechissez trop à votre tactique, et le roi des démons vous détruit littéralement.
+
+Vous être mort !
+```
+
+fin.
