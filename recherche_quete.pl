@@ -59,7 +59,7 @@ nom_vieil_homme :-
     nl,
     write("Le vieil homme, content de vous, accepte de vous dire son nom : il s'agit du baron Cavallini, celui dont les terres "), nl,
     write("s'étendent du nord des montagnes jusqu'à l'océan."), nl,
-    nl.
+    nl, !.
     
     
 % Pour lancer la partie
@@ -315,8 +315,8 @@ non :-
     nl,
     write("Vous n'avez pas le choix, c'est la seul quête des environs, donc vous acceptez."),
     nl,
-    retract(position_courante(vieil_homme)),
-    assert(position_courante(vieil_homme2)),
+    retract(position_courante(vieil_homme2)),
+    assert(position_courante(village_col)),
     histoire, !.
 
 non :-
@@ -577,7 +577,7 @@ decrire :-
 decrire :-
     position_courante(vieil_homme),
     nl,
-    write("En vous rapprochant du vieil homme, vous remarquez qu'il est aveugle. C'est ce même moment qu'il vous dit 'Hey ! Mes"), nl,
+    write("En vous rapprochant du vieil homme, vous remarquez qu'il est aveugle. C'est à ce même moment qu'il vous dit 'Hey ! Mes"), nl,
     write("yeux ne fonctionnent peut être pas, mais mes oreilles si, je t'entend respirer depuis 20 minutes."), nl,
     write("Intrigué vous ne savez que répondre."), nl,
     write("L'homme commence à raconter son histoire, mais elle ne vous interesse pas, donc vous commencer à partir. Mais il le"), nl,
@@ -637,7 +637,7 @@ decrire :-
     nl,
     write("Quand vous arrivez au pied du château, le nouveau roi des démons vous attend. En tant que chevalier et défenseur de la "), nl,
     write("liberté de programmation, vous le provoquer en duel."), nl,
-    % chateau_idiot
+    chateau_idiot,
     fin.
 
 options :-
@@ -675,7 +675,7 @@ options :-
 options :-
     position_courante(desert),
     nl,
-    write("Que faites vous ? 'rebrousser' chemin pour aller chercher de l'eau, ou 'continuer' en espérent tomber sur des puits."), nl,
+    write("Que faites vous ? 'rebrousser' chemin pour aller chercher de l'eau, ou 'continuer' en espérant tomber sur des puits."), nl,
     nl,
     nl, !.
 
@@ -684,7 +684,7 @@ village_colTaille :-
     write("Grâce a vos grandes jambes, vous arrivez très vite en vue du chantier."),
     nl, !.
 
-village_col :-
+village_colTaille :-
     write("Puisque vous êtes petit, vous avez besoin de plusieurs heures pour grimper dans la montagne."),
     nl, !.
 
